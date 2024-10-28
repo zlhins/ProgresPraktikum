@@ -2,6 +2,13 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <!-- dd($errors);
+    @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    {{ $error }}
+                                @endforeach
+                            @endif -->
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 

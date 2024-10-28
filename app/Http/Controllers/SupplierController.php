@@ -33,34 +33,21 @@ class SupplierController extends Controller
 
     public function show(string $id)
     {
-        $supplier = Supplier::findOrFail($id);
-        return view('master-data.supplier-master.show-supplier', compact('supplier'));
+        //
     }
 
     public function edit(string $id)
     {
-        $supplier = Supplier::findOrFail($id);
-        return view('master-data.supplier-master.edit-supplier', compact('supplier'));
+       //
     }
 
     public function update(Request $request, string $id)
     {
-        $validasi_data = $request->validate([
-            'supplier_name' => 'required|string|max:255',
-            'supplier_address' => 'nullable|string|max:500',
-            'phone' => 'required|string|max:15',
-            'comment' => 'nullable|string',
-        ]);
-
-        $supplier = Supplier::findOrFail($id);
-        $supplier->update($validasi_data);
-        return redirect()->back()->with('success', 'Supplier updated successfully!');
+       //
     }
 
     public function destroy(string $id)
     {
-        $supplier = Supplier::findOrFail($id);
-        $supplier->delete();
-        return redirect()->back()->with('success', 'Supplier deleted successfully!');
+        //
     }
 }
