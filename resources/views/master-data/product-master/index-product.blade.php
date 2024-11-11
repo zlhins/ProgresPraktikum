@@ -11,7 +11,7 @@
     <div class="overflow-x-auto">
       <a href="{{ route('product-create')}}">
         <button class="px-6 py-4 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
-            Add product data
+            Add products
         </button>
     </a>
       <table class="min-w-full border border-collapse border-gray-200">
@@ -28,7 +28,6 @@
           </tr>
         </thead>
         <tbody>
-         
           @foreach ($products as $product)
             <tr class="bg-white">
               <td class="px-4 py-2 border border-gray-200">1</td>
@@ -40,7 +39,7 @@
               <td class="px-4 py-2 border border-gray-200">{{ $product->producer }}</td>
               <td class="px-4 py-2 border border-gray-200">
                 <a href="{{ route('product-edit', $product->id) }}" class="px-2 text-blue-600 hover:text-blue-800">Edit</a>
-                <button class="px-2 text-red-600 hover:text-red-800" onclick="confirmDelete(1)">Hapus</button>
+                <button class="px-2 text-red-600 hover:text-red-800" onclick="confirmDelete('{{  route('product-delete', $product->id) }}')">Hapus</button>
               </td>
             </tr>
           @endforeach
@@ -54,8 +53,8 @@
 
 
   <script>
-    function confirmDelete(id, deleteUrl) {
-            if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+    function confirmDelete(deleteUrl) {
+            if (confirm('Apakah Anda yakin ingin menghapproducts ini?')) {
                 // Jika user mengonfirmasi, kita dapat membuat form dan mengirimkan permintaan delete
                 let form = document.createElement('form');
                 form.method = 'POST';

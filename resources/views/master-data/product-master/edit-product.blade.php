@@ -14,11 +14,13 @@
                         <h2 class="mb-5 text-2xl font-bold">Update Product</h2>
                         <x-auth-session-status class="mb-4" :status="session('success')" />
                         @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    {{ $error }}
-                                @endforeach
-                            @endif
-                        <form action="{{ route('product-update', $product->id) }}" method="POST" class="p-6 bg-white rounded shadow-md">
+                        <div class="mb-5 text-sm text-red-600">
+                            @foreach ($errors->all() as $error)
+                            {{ $errors }}
+                            @endforeach
+                        </div>
+                        @endif
+            <form action="{{ route('product-update', $product->id) }}" method="POST" class="p-6 bg-white rounded shadow-md">
                 @csrf
                 @method('PUT')
 
@@ -29,9 +31,23 @@
                 </div>
 
 
+
+
                 <div class="mb-4">
                     <label for="unit" class="block font-medium text-gray-700">Unit:</label>
-                    <input type="text" id="unit" name="unit" value="{{ old('unit', $product->unit) }}" required class="w-full p-2 mt-2 border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                     <select id="unit" name="unit"
+                                    class="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    required>
+                                    <option value="" disabled>Select a unit</option>
+                                    <option value="kg" {{ old('unit', $product->unit) == 'kg' ? 'selected' : '' }}>
+                                        Kilogram (kg)</option>
+                                    <option value="ltr" {{ old('unit', $product->unit) == 'ltr' ? 'selected' : '' }}>
+                                        Liter (ltr)</option>
+                                    <option value="pcs" {{ old('unit', $product->unit) == 'pcs' ? 'selected' : '' }}>
+                                        Pieces (pcs)</option>
+                                    <option value="box" {{ old('unit', $product->unit) == 'box' ? 'selected' : '' }}>
+                                        Box</option>
+                                </select>
                 </div>
 
 
