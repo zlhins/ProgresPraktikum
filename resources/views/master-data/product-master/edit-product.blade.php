@@ -76,7 +76,7 @@
 
 
                 <div class="flex justify-end">
-                    <button type="submit" class="px-4 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600 focus:ring-2 focus:ring-indigo-500">Update Product</button>
+                    <button type="submit" class="px-4 py-2 text-green bg-indigo-500 rounded hover:bg-indigo-600 focus:ring-2 focus:ring-indigo-500">Update Product</button>
                 </div>
             </form>
         </div>
