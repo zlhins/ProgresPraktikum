@@ -10,6 +10,7 @@ Route::get('/supplier/create', [SupplierController::class, 'create'])->name('sup
 Route::post('/supplier', [SupplierController::class, 'store'])->name('supplier-store');
 
 //Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/export/excel', [ProductController::class, 'exportExcel'])->name('product-export-excel');
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');
 Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
 Route::post('/product', [ProductController::class, 'store'])->name("product-store");
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
